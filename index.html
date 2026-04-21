@@ -273,7 +273,7 @@
     <p>Open-source CLIs, IDE integrations, and AI-powered automation for SAP — built by <a href="https://bluefunda.com">BlueFunda</a>.</p>
     <div class="hero-actions">
       <a class="btn btn-primary" href="https://abaper.bluefunda.com">Try ABAPer →</a>
-      <a class="btn" href="https://bluefunda.com/bluefunda-ai/">Explore BlueFunda AI</a>
+      <a class="btn btn-primary" href="https://bluefunda.com/login">Try BlueFunda AI →</a>
       <a class="btn" href="https://github.com/bluefunda">View on GitHub</a>
     </div>
   </section>
@@ -324,6 +324,11 @@ go install github.com/bluefunda/abaper-cli/cmd/abaper@latest</pre>
     <p class="section-intro">Context-aware, no-code AI agents for SAP operations — automate provisioning, generate OData services from plain-text prompts, answer data questions in natural language, and orchestrate S/4HANA across clouds. Also powers the AI features in ABAPer.</p>
 
     <div class="grid">
+      <a class="card" href="https://bluefunda.com/login">
+        <p class="card-title">Web app <span class="arrow">→</span></p>
+        <p class="card-desc">Log in and chat with BlueFunda AI directly at <code>bluefunda.com/login</code>. No install required.</p>
+        <div class="card-meta"><span class="tag">Browser</span></div>
+      </a>
       <a class="card" href="https://github.com/bluefunda/cai-cli">
         <p class="card-title">cai-cli <span class="arrow">→</span></p>
         <p class="card-desc">Command line interface for BlueFunda AI (<code>ai</code> binary) — chat, models, MCP, billing.</p>
@@ -337,11 +342,11 @@ go install github.com/bluefunda/abaper-cli/cmd/abaper@latest</pre>
     </div>
 
     <div class="install">
-      <h3>Quick Install</h3>
-<pre><span class="comment"># Install CAI CLI from source</span>
+      <h3>Get Started</h3>
+<pre><span class="comment"># Easiest: log in via browser</span>
+open https://bluefunda.com/login</pre>
+<pre><span class="comment"># Or install the CLI from source</span>
 go install github.com/bluefunda/cai-cli/cmd/ai@latest</pre>
-<pre><span class="comment"># Or download a binary from GitHub Releases</span>
-https://github.com/bluefunda/cai-cli/releases/latest</pre>
 <pre><span class="comment"># Authenticate via OAuth device flow, then start chatting</span>
 ai login
 ai chat start "Summarize last quarter's sales from SAP"</pre>
