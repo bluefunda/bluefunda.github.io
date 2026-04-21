@@ -1,10 +1,363 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta http-equiv="refresh" content="0; url=https://github.com/bluefunda" />
-    <title>Redirecting to GitHub...</title>
-  </head>
-  <body>
-    <p>If you're not redirected, <a href="https://github.com/bluefunda">click here</a>.</p>
-  </body>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>BlueFunda — Developer Tools for SAP ABAP</title>
+  <meta name="description" content="BlueFunda builds developer tools for the SAP ABAP ecosystem. Explore our open-source projects, CLIs, and integrations.">
+  <meta property="og:title" content="BlueFunda — Developer Tools for SAP ABAP">
+  <meta property="og:description" content="Open-source tools, CLIs, and integrations for SAP ABAP development.">
+  <meta property="og:url" content="https://bluefunda.github.io">
+  <meta property="og:type" content="website">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:site" content="@bluefunda">
+  <link rel="icon" href="https://github.com/bluefunda.png" type="image/png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #ffffff;
+      --fg: #0a0e1a;
+      --fg-muted: #5a6374;
+      --fg-subtle: #8a94a6;
+      --border: #e6e8ed;
+      --surface: #f7f8fa;
+      --accent: #2c5fff;
+      --accent-fg: #ffffff;
+      --code-bg: #f0f2f6;
+    }
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --bg: #0b0d12;
+        --fg: #e8ecf3;
+        --fg-muted: #9aa3b5;
+        --fg-subtle: #6b7387;
+        --border: #1f242e;
+        --surface: #11141b;
+        --accent: #6d8fff;
+        --accent-fg: #0b0d12;
+        --code-bg: #181c25;
+      }
+    }
+    *, *::before, *::after { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      background: var(--bg);
+      color: var(--fg);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+    code, pre, .mono { font-family: 'JetBrains Mono', 'SF Mono', Menlo, Consolas, monospace; }
+    a { color: var(--accent); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    .container { max-width: 960px; margin: 0 auto; padding: 0 24px; }
+
+    /* Header */
+    header {
+      border-bottom: 1px solid var(--border);
+      padding: 20px 0;
+    }
+    .nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .brand {
+      font-weight: 700;
+      font-size: 18px;
+      color: var(--fg);
+      letter-spacing: -0.01em;
+    }
+    .brand:hover { text-decoration: none; }
+    .brand-mark { color: var(--accent); }
+    .nav-links { display: flex; gap: 24px; font-size: 14px; }
+    .nav-links a { color: var(--fg-muted); }
+    .nav-links a:hover { color: var(--fg); text-decoration: none; }
+
+    /* Hero */
+    .hero {
+      padding: 96px 0 64px;
+      border-bottom: 1px solid var(--border);
+    }
+    .hero h1 {
+      font-size: 56px;
+      line-height: 1.05;
+      letter-spacing: -0.03em;
+      font-weight: 700;
+      margin: 0 0 20px;
+      max-width: 720px;
+    }
+    .hero-accent { color: var(--accent); }
+    .hero p {
+      font-size: 20px;
+      color: var(--fg-muted);
+      max-width: 620px;
+      margin: 0 0 32px;
+    }
+    .hero-actions { display: flex; gap: 12px; flex-wrap: wrap; }
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 10px 18px;
+      border-radius: 6px;
+      font-size: 14px;
+      font-weight: 500;
+      border: 1px solid var(--border);
+      color: var(--fg);
+      background: var(--bg);
+      transition: all 0.15s ease;
+    }
+    .btn:hover { background: var(--surface); text-decoration: none; }
+    .btn-primary {
+      background: var(--accent);
+      color: var(--accent-fg);
+      border-color: var(--accent);
+    }
+    .btn-primary:hover { opacity: 0.9; background: var(--accent); color: var(--accent-fg); }
+
+    /* Sections */
+    section { padding: 72px 0; border-bottom: 1px solid var(--border); }
+    section:last-of-type { border-bottom: none; }
+    .eyebrow {
+      font-size: 12px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--accent);
+      margin: 0 0 8px;
+    }
+    .section-title {
+      font-size: 32px;
+      letter-spacing: -0.02em;
+      font-weight: 700;
+      margin: 0 0 12px;
+    }
+    .section-intro {
+      color: var(--fg-muted);
+      font-size: 17px;
+      max-width: 640px;
+      margin: 0 0 40px;
+    }
+
+    /* Project grid */
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 16px;
+    }
+    .card {
+      display: block;
+      padding: 24px;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      color: var(--fg);
+      transition: all 0.15s ease;
+    }
+    .card:hover {
+      text-decoration: none;
+      border-color: var(--accent);
+      transform: translateY(-1px);
+    }
+    .card-title {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 15px;
+      font-weight: 500;
+      margin: 0 0 8px;
+      color: var(--fg);
+    }
+    .card-title .arrow { color: var(--fg-subtle); transition: transform 0.15s ease; }
+    .card:hover .arrow { transform: translateX(2px); color: var(--accent); }
+    .card-desc {
+      color: var(--fg-muted);
+      font-size: 14px;
+      margin: 0;
+      line-height: 1.5;
+    }
+    .card-meta {
+      display: flex;
+      gap: 8px;
+      margin-top: 12px;
+      font-size: 12px;
+      color: var(--fg-subtle);
+    }
+    .tag {
+      padding: 2px 8px;
+      background: var(--code-bg);
+      border-radius: 4px;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 11px;
+    }
+
+    /* Install block */
+    .install {
+      margin-top: 40px;
+      padding: 28px;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+    }
+    .install h3 {
+      font-size: 14px;
+      font-weight: 600;
+      margin: 0 0 12px;
+      color: var(--fg-muted);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+    .install pre {
+      margin: 0;
+      padding: 16px 20px;
+      background: var(--code-bg);
+      border-radius: 6px;
+      font-size: 14px;
+      overflow-x: auto;
+      color: var(--fg);
+    }
+    .install pre + pre { margin-top: 8px; }
+    .comment { color: var(--fg-subtle); }
+
+    /* Footer */
+    footer {
+      padding: 48px 0 64px;
+      color: var(--fg-subtle);
+      font-size: 14px;
+    }
+    .footer-grid {
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 24px;
+      align-items: center;
+    }
+    .footer-links { display: flex; gap: 20px; }
+    .footer-links a { color: var(--fg-muted); }
+
+    @media (max-width: 640px) {
+      .hero { padding: 64px 0 48px; }
+      .hero h1 { font-size: 40px; }
+      .hero p { font-size: 17px; }
+      section { padding: 56px 0; }
+      .section-title { font-size: 26px; }
+      .nav-links { gap: 16px; }
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <div class="container nav">
+    <a href="/" class="brand">Blue<span class="brand-mark">Funda</span></a>
+    <nav class="nav-links">
+      <a href="#abaper">ABAPer</a>
+      <a href="#tools">Tools</a>
+      <a href="https://github.com/bluefunda">GitHub</a>
+      <a href="https://bluefunda.com">bluefunda.com</a>
+    </nav>
+  </div>
+</header>
+
+<div class="container">
+
+  <section class="hero">
+    <h1>Developer tools for <span class="hero-accent">SAP ABAP</span>.</h1>
+    <p>Open-source CLIs, IDE integrations, and libraries for modern ABAP development — built by <a href="https://bluefunda.com">BlueFunda</a>.</p>
+    <div class="hero-actions">
+      <a class="btn btn-primary" href="https://abaper.bluefunda.com">Try ABAPer →</a>
+      <a class="btn" href="https://github.com/bluefunda">View on GitHub</a>
+    </div>
+  </section>
+
+  <section id="abaper">
+    <p class="eyebrow">Featured Platform</p>
+    <h2 class="section-title">ABAPer</h2>
+    <p class="section-intro">A platform for modern ABAP development — write, test, deploy, and manage ABAP code with AI assistance, from the browser, your editor, or the command line.</p>
+
+    <div class="grid">
+      <a class="card" href="https://github.com/bluefunda/abaper">
+        <p class="card-title">abaper <span class="arrow">→</span></p>
+        <p class="card-desc">Core ABAPer backend service.</p>
+        <div class="card-meta"><span class="tag">Go</span><span class="tag">Apache-2.0</span></div>
+      </a>
+      <a class="card" href="https://github.com/bluefunda/abaper-editor">
+        <p class="card-title">abaper-editor <span class="arrow">→</span></p>
+        <p class="card-desc">Browser-based ABAP IDE powered by Monaco Editor.</p>
+        <div class="card-meta"><span class="tag">TypeScript</span><span class="tag">MIT</span></div>
+      </a>
+      <a class="card" href="https://github.com/bluefunda/abaper-vscode">
+        <p class="card-title">abaper-vscode <span class="arrow">→</span></p>
+        <p class="card-desc">AI-powered ABAP development assistant for VS Code.</p>
+        <div class="card-meta"><span class="tag">TypeScript</span><span class="tag">MIT</span></div>
+      </a>
+      <a class="card" href="https://github.com/bluefunda/abaper-cli">
+        <p class="card-title">abaper-cli <span class="arrow">→</span></p>
+        <p class="card-desc">Command line interface for the ABAPer platform.</p>
+        <div class="card-meta"><span class="tag">Go</span><span class="tag">MIT</span></div>
+      </a>
+      <a class="card" href="https://github.com/bluefunda/abaper-mcp">
+        <p class="card-title">abaper-mcp <span class="arrow">→</span></p>
+        <p class="card-desc">MCP server for AI agent integration with SAP ABAP.</p>
+        <div class="card-meta"><span class="tag">Go</span><span class="tag">MIT</span></div>
+      </a>
+    </div>
+
+    <div class="install">
+      <h3>Quick Install</h3>
+<pre><span class="comment"># VS Code extension</span>
+Install from the <a href="https://marketplace.visualstudio.com/items?itemName=bluefunda.abaper">VS Code Marketplace</a></pre>
+<pre><span class="comment"># CLI via Homebrew (macOS/Linux)</span>
+brew tap bluefunda/tap
+brew install abaper</pre>
+<pre><span class="comment"># Or install from source</span>
+go install github.com/bluefunda/abaper-cli/cmd/abaper@latest</pre>
+    </div>
+  </section>
+
+  <section id="tools">
+    <p class="eyebrow">Tools &amp; Utilities</p>
+    <h2 class="section-title">Other Projects</h2>
+    <p class="section-intro">Standalone libraries and products for the SAP ecosystem.</p>
+
+    <div class="grid">
+      <a class="card" href="https://github.com/bluefunda/abap-odata-test">
+        <p class="card-title">abap-odata-test <span class="arrow">→</span></p>
+        <p class="card-desc">ABAP library for OData endpoint testing and assertions.</p>
+        <div class="card-meta"><span class="tag">ABAP</span><span class="tag">MIT</span></div>
+      </a>
+      <a class="card" href="https://github.com/bluefunda/xpro-free">
+        <p class="card-title">xpro-free <span class="arrow">→</span></p>
+        <p class="card-desc">XML processing toolchain — CLI, batch processor, file-watcher.</p>
+        <div class="card-meta"><span class="tag">Linux</span><span class="tag">deb/rpm</span></div>
+      </a>
+      <a class="card" href="https://github.com/bluefunda/homebrew-tap">
+        <p class="card-title">homebrew-tap <span class="arrow">→</span></p>
+        <p class="card-desc">Homebrew formulae for BlueFunda CLIs.</p>
+        <div class="card-meta"><span class="tag">Ruby</span><span class="tag">MIT</span></div>
+      </a>
+    </div>
+  </section>
+
+</div>
+
+<footer>
+  <div class="container footer-grid">
+    <div>© 2026 BlueFunda, Inc.</div>
+    <div class="footer-links">
+      <a href="https://github.com/bluefunda">GitHub</a>
+      <a href="https://bluefunda.com">Website</a>
+      <a href="https://twitter.com/bluefunda">Twitter</a>
+      <a href="mailto:info@bluefunda.com">Contact</a>
+    </div>
+  </div>
+</footer>
+
+</body>
 </html>
