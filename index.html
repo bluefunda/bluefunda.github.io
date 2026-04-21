@@ -4,9 +4,9 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>BlueFunda — Developer Tools for SAP ABAP</title>
-  <meta name="description" content="BlueFunda builds developer tools for the SAP ABAP ecosystem. Explore our open-source projects, CLIs, and integrations.">
-  <meta property="og:title" content="BlueFunda — Developer Tools for SAP ABAP">
-  <meta property="og:description" content="Open-source tools, CLIs, and integrations for SAP ABAP development.">
+  <meta name="description" content="BlueFunda builds developer tools and AI agents for SAP. Explore ABAPer, BlueFunda AI, and our open-source CLIs and integrations.">
+  <meta property="og:title" content="BlueFunda — Developer Tools &amp; AI Agents for SAP">
+  <meta property="og:description" content="ABAPer, BlueFunda AI, and open-source tools for SAP development.">
   <meta property="og:url" content="https://bluefunda.github.io">
   <meta property="og:type" content="website">
   <meta name="twitter:card" content="summary">
@@ -258,6 +258,7 @@
     <a href="/" class="brand">Blue<span class="brand-mark">Funda</span></a>
     <nav class="nav-links">
       <a href="#abaper">ABAPer</a>
+      <a href="#cai">BlueFunda AI</a>
       <a href="#tools">Tools</a>
       <a href="https://github.com/bluefunda">GitHub</a>
       <a href="https://bluefunda.com">bluefunda.com</a>
@@ -268,10 +269,11 @@
 <div class="container">
 
   <section class="hero">
-    <h1>Developer tools for <span class="hero-accent">SAP ABAP</span>.</h1>
-    <p>Open-source CLIs, IDE integrations, and libraries for modern ABAP development — built by <a href="https://bluefunda.com">BlueFunda</a>.</p>
+    <h1>Developer tools and AI agents for <span class="hero-accent">SAP</span>.</h1>
+    <p>Open-source CLIs, IDE integrations, and AI-powered automation for SAP — built by <a href="https://bluefunda.com">BlueFunda</a>.</p>
     <div class="hero-actions">
       <a class="btn btn-primary" href="https://abaper.bluefunda.com">Try ABAPer →</a>
+      <a class="btn" href="https://bluefunda.com/bluefunda-ai/">Explore BlueFunda AI</a>
       <a class="btn" href="https://github.com/bluefunda">View on GitHub</a>
     </div>
   </section>
@@ -318,6 +320,36 @@ brew tap bluefunda/tap
 brew install abaper</pre>
 <pre><span class="comment"># Or install from source</span>
 go install github.com/bluefunda/abaper-cli/cmd/abaper@latest</pre>
+    </div>
+  </section>
+
+  <section id="cai">
+    <p class="eyebrow">Featured Platform</p>
+    <h2 class="section-title">BlueFunda AI</h2>
+    <p class="section-intro">Context-aware, no-code AI agents for SAP operations — automate provisioning, generate OData services from plain-text prompts, answer data questions in natural language, and orchestrate S/4HANA across clouds. Also powers the AI features in ABAPer.</p>
+
+    <div class="grid">
+      <a class="card" href="https://github.com/bluefunda/cai-cli">
+        <p class="card-title">cai-cli <span class="arrow">→</span></p>
+        <p class="card-desc">Command line interface for BlueFunda AI (<code>ai</code> binary) — chat, models, MCP, billing.</p>
+        <div class="card-meta"><span class="tag">Go</span><span class="tag">MIT</span></div>
+      </a>
+      <a class="card" href="https://bluefunda.com/bluefunda-ai/">
+        <p class="card-title">Product page <span class="arrow">→</span></p>
+        <p class="card-desc">Learn more about BlueFunda AI agents — features, use cases, and pricing.</p>
+        <div class="card-meta"><span class="tag">bluefunda.com</span></div>
+      </a>
+    </div>
+
+    <div class="install">
+      <h3>Quick Install</h3>
+<pre><span class="comment"># Install CAI CLI from source</span>
+go install github.com/bluefunda/cai-cli/cmd/ai@latest</pre>
+<pre><span class="comment"># Or download a binary from GitHub Releases</span>
+https://github.com/bluefunda/cai-cli/releases/latest</pre>
+<pre><span class="comment"># Authenticate via OAuth device flow, then start chatting</span>
+ai login
+ai chat start "Summarize last quarter's sales from SAP"</pre>
     </div>
   </section>
 
