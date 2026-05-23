@@ -329,10 +329,10 @@ go install github.com/bluefunda/abaper-cli/cmd/abaper@latest</pre>
         <p class="card-desc">Log in and chat with BlueFunda AI directly at <code>bluefunda.com/login</code>. No install required.</p>
         <div class="card-meta"><span class="tag">Browser</span></div>
       </a>
-      <a class="card" href="https://github.com/bluefunda/cai-cli">
-        <p class="card-title">cai-cli <span class="arrow">→</span></p>
-        <p class="card-desc">Command line interface for BlueFunda AI (<code>ai</code> binary) — chat, models, MCP, billing.</p>
-        <div class="card-meta"><span class="tag">Go</span><span class="tag">MIT</span></div>
+      <a class="card" href="https://github.com/bluefunda/bluefunda-ai">
+        <p class="card-title">bluefunda-ai <span class="arrow">→</span></p>
+        <p class="card-desc">CLI for BlueFunda AI (<code>bai</code> binary) — TUI chat, agentic coding, models, MCP, billing.</p>
+        <div class="card-meta"><span class="tag">Go</span><span class="tag">Apache-2.0</span></div>
       </a>
       <a class="card" href="https://github.com/bluefunda/llmrouter">
         <p class="card-title">llmrouter <span class="arrow">→</span></p>
@@ -351,10 +351,38 @@ go install github.com/bluefunda/abaper-cli/cmd/abaper@latest</pre>
 <pre><span class="comment"># Easiest: log in via browser</span>
 open https://bluefunda.com/login</pre>
 <pre><span class="comment"># Or install the CLI from source</span>
-go install github.com/bluefunda/cai-cli/cmd/ai@latest</pre>
+go install github.com/bluefunda/bluefunda-ai/cmd/bai@latest</pre>
 <pre><span class="comment"># Authenticate via OAuth device flow, then start chatting</span>
-ai login
-ai chat start "Summarize last quarter's sales from SAP"</pre>
+bai login
+bai chat start "Summarize last quarter's sales from SAP"</pre>
+    </div>
+  </section>
+
+  <section id="bluerequests">
+    <p class="eyebrow">Change &amp; Release Management</p>
+    <h2 class="section-title">BlueRequests</h2>
+    <p class="section-intro">Event-driven change and release management for SAP operations — manage transport requests, change orders, approvals, and release workflows from the command line or a TUI dashboard.</p>
+
+    <div class="grid">
+      <a class="card" href="https://github.com/bluefunda/bluerequests">
+        <p class="card-title">bluerequests <span class="arrow">→</span></p>
+        <p class="card-desc">CLI for BlueRequests change and release management (<code>req</code> binary) — TUI dashboard, CRs, events, approvals.</p>
+        <div class="card-meta"><span class="tag">Go</span><span class="tag">Apache-2.0</span></div>
+      </a>
+    </div>
+
+    <div class="install">
+      <h3>Quick Install</h3>
+<pre><span class="comment"># Homebrew (macOS/Linux)</span>
+brew tap bluefunda/tap
+brew install --cask req</pre>
+<pre><span class="comment"># One-line installer</span>
+curl -fsSL https://raw.githubusercontent.com/bluefunda/bluerequests/main/install.sh | sh</pre>
+<pre><span class="comment"># Or install from source</span>
+go install github.com/bluefunda/bluerequests/cmd/req@latest</pre>
+<pre><span class="comment"># Authenticate and open the TUI dashboard</span>
+req login
+req</pre>
     </div>
   </section>
 
