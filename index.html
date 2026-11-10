@@ -294,10 +294,10 @@
         <p class="card-desc">AI-powered ABAP development assistant for VS Code.</p>
         <div class="card-meta"><span class="tag">TypeScript</span><span class="tag">MIT</span></div>
       </a>
-      <a class="card" href="https://github.com/bluefunda/abaper-cli">
-        <p class="card-title">abaper-cli <span class="arrow">→</span></p>
-        <p class="card-desc">Command line interface for the ABAPer platform.</p>
-        <div class="card-meta"><span class="tag">Go</span><span class="tag">MIT</span></div>
+      <a class="card" href="https://github.com/bluefunda/bluefunda-ai/tree/main/abaper">
+        <p class="card-title">abaper <span class="arrow">→</span></p>
+        <p class="card-desc">ABAPer CLI, TUI, language server and Go SDK (<code>abaper</code> binary, built from bluefunda-ai).</p>
+        <div class="card-meta"><span class="tag">Go</span><span class="tag">Apache-2.0</span></div>
       </a>
       <a class="card" href="https://github.com/bluefunda/abaper-mcp">
         <p class="card-title">abaper-mcp <span class="arrow">→</span></p>
@@ -312,9 +312,11 @@
 Install from the <a href="https://marketplace.visualstudio.com/items?itemName=bluefunda.abaper">VS Code Marketplace</a></pre>
 <pre><span class="comment"># CLI via Homebrew (macOS/Linux)</span>
 brew tap bluefunda/tap
-brew install abaper</pre>
+brew install --cask abaper</pre>
+<pre><span class="comment"># One-line installer</span>
+curl -fsSL https://bluefunda.com/abaper/install.sh | sh</pre>
 <pre><span class="comment"># Or install from source</span>
-go install github.com/bluefunda/abaper-cli/cmd/abaper@latest</pre>
+go install github.com/bluefunda/bluefunda-ai/abaper/cmd/abaper@latest</pre>
     </div>
   </section>
 
@@ -331,7 +333,7 @@ go install github.com/bluefunda/abaper-cli/cmd/abaper@latest</pre>
       </a>
       <a class="card" href="https://github.com/bluefunda/bluefunda-ai">
         <p class="card-title">bluefunda-ai <span class="arrow">→</span></p>
-        <p class="card-desc">CLI for BlueFunda AI (<code>bai</code> binary) — TUI chat, agentic coding, models, MCP, billing.</p>
+        <p class="card-desc">CLI for BlueFunda AI (<code>bai</code> binary) — TUI chat, agentic coding, models, MCP, billing. Also builds the <code>abaper</code> and <code>breq</code> CLIs.</p>
         <div class="card-meta"><span class="tag">Go</span><span class="tag">Apache-2.0</span></div>
       </a>
       <a class="card" href="https://github.com/bluefunda/llmrouter">
@@ -364,9 +366,9 @@ bai chat start "Summarize last quarter's sales from SAP"</pre>
     <p class="section-intro">Event-driven change and release management for SAP operations — manage transport requests, change orders, approvals, and release workflows from the command line or a TUI dashboard.</p>
 
     <div class="grid">
-      <a class="card" href="https://github.com/bluefunda/bluerequests">
-        <p class="card-title">bluerequests <span class="arrow">→</span></p>
-        <p class="card-desc">CLI for BlueRequests change and release management (<code>breq</code> binary) — TUI dashboard, CRs, events, approvals.</p>
+      <a class="card" href="https://github.com/bluefunda/bluefunda-ai/tree/main/breq">
+        <p class="card-title">breq <span class="arrow">→</span></p>
+        <p class="card-desc">CLI for BlueRequests change and release management (<code>breq</code> binary, built from bluefunda-ai; also <code>bai requests</code>) — TUI dashboard, CRs, events, approvals.</p>
         <div class="card-meta"><span class="tag">Go</span><span class="tag">Apache-2.0</span></div>
       </a>
     </div>
@@ -377,12 +379,12 @@ bai chat start "Summarize last quarter's sales from SAP"</pre>
 brew tap bluefunda/tap
 brew install --cask breq</pre>
 <pre><span class="comment"># One-line installer</span>
-curl -fsSL https://raw.githubusercontent.com/bluefunda/bluerequests/main/install.sh | sh</pre>
+curl -fsSL https://raw.githubusercontent.com/bluefunda/bluefunda-ai/main/breq/install.sh | sh</pre>
 <pre><span class="comment"># Or install from source</span>
-go install github.com/bluefunda/bluerequests/cmd/breq@latest</pre>
+go install github.com/bluefunda/bluefunda-ai/breq/cmd/breq@latest</pre>
 <pre><span class="comment"># Authenticate and open the TUI dashboard</span>
 breq login
-breq</pre>
+breq cr watch</pre>
     </div>
   </section>
 
